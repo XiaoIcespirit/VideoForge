@@ -1,18 +1,24 @@
 import "./index.css";
 import { Composition } from "remotion";
-import { MyComposition } from "./Composition";
+import { LectureComposition } from "./Composition";
+import { lectureEpisodes } from "./episodes";
+import { getDurationFrames } from "./templates/xiaoxuelingLecture/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Composition
-        id="MyComp"
-        component={MyComposition}
-        durationInFrames={60}
-        fps={30}
-        width={1280}
-        height={720}
-      />
+      {lectureEpisodes.map((episode) => (
+        <Composition
+          key={episode.meta.compositionId}
+          id={episode.meta.compositionId}
+          component={LectureComposition}
+          durationInFrames={getDurationFrames(episode)}
+          fps={episode.meta.fps}
+          width={episode.meta.width}
+          height={episode.meta.height}
+          defaultProps={{ episode }}
+        />
+      ))}
     </>
   );
 };

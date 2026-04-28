@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remotion Style Template Builder"
+  short_description: "Design reusable Remotion video style templates."
+  default_prompt: "Design a reusable Remotion video style template from this brief and save it to docs/video-style-templates."

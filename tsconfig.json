@@ -5,6 +5,10 @@
     "jsx": "react-jsx",
     "strict": true,
     "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "lib": ["es2015"],
     "esModuleInterop": true,
     "skipLibCheck": true,

@@ -1,7 +1,97 @@
-node_modules
-dist
-.DS_Store
-.env
+# =============================================
+# VideoForge — 视频锻造坊
+# 项目代码仓库 .gitignore
+# =============================================
 
-# Ignore the output video from Git but not videos you import into src/.
-out
+# ---- 依赖 ----
+node_modules/
+
+# ---- 构建产物 ----
+build/
+dist/
+
+# ---- 环境变量（包含 API Key 等敏感信息）----
+.env
+.env.local
+.env.*.local
+
+# ---- 缓存 ----
+.cache/
+
+# ---- 临时文件 ----
+.tmp/
+out/tmp/
+
+# ---- 输出文件（视频 / 关键帧 / 诊断图）----
+# 注意：out/renders/ep01/ 下如需保留特定视频，
+# 请在初始化仓库后单独 git add，该目录已被全部忽略
+out/downloads/
+out/renders/
+out/stills/
+out/diagnostics/
+
+# ---- 包管理器锁文件 ----
+# skills 目录为项目运行时依赖，非 npm 包，不排除
+skills-lock.json
+package-lock.json
+
+# ---- IDE / 编辑器临时文件 ----
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# ---- 操作系统文件 ----
+Desktop.ini
+
+# ---- 本地 IDE / Agent 配置（不上传）----
+.trae/
+.codex/
+.workbuddy/
+.github/           # GitHub Actions 等本地配置
+.claude-plugin/
+
+# ---- 补丁文件（已整合进源码）----
+patches/
+
+# ---- 大型二进制文件（视频 / 模型）----
+# 禁止上传 mp4/mov/avi 等视频文件（源码目录 src/ 中的视频 import 除外）
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.flv
+
+# 禁止上传 ONNX / pt / ckpt 等模型文件
+*.onnx
+*.pt
+*.ckpt
+*.pth
+*.pkl
+*.h5
+
+# 禁止上传大图（IP 角色图统一放 public/ip/ 由源码管理，此处仅排除临时下载图）
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+!.public/ip/
+!.public/generated/
+
+# ---- 日志文件 ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================
+# 保留以下目录结构（其内容由源码管理）
+# =============================================
+# public/generated/   — 运行时生成的素材占位
+# public/ip/         — IP 角色三视图贴图（必须随源码管理）

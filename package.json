@@ -1,16 +1,19 @@
 {
-  "name": "gugugaga",
+  "name": "xiaoxueling-vibe-coding-course",
   "version": "1.0.0",
   "description": "My Remotion video",
   "repository": {},
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@remotion/captions": "4.0.448",
     "@remotion/cli": "4.0.448",
+    "@remotion/tailwind-v4": "4.0.448",
+    "culori": "^4.0.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "remotion": "4.0.448",
-    "@remotion/tailwind-v4": "4.0.448",
+    "remotion": "^4.0.448",
+    "remotion-bits": "^0.2.0",
     "tailwindcss": "4.0.0"
   },
   "devDependencies": {
@@ -18,14 +21,27 @@
     "@types/react": "19.2.7",
     "@types/web": "0.0.166",
     "eslint": "9.19.0",
+    "ffmpeg-static": "^5.3.0",
+    "patch-package": "^8.0.1",
     "prettier": "3.8.1",
     "typescript": "5.9.3"
   },
   "scripts": {
     "dev": "remotion studio",
     "build": "remotion bundle",
+    "prepare:outputs": "powershell -ExecutionPolicy Bypass -File .\\scripts\\prepare-output-dirs.ps1",
+    "analyze:video": "powershell -ExecutionPolicy Bypass -File .\\scripts\\analyze-video.ps1",
+    "analyze:style-video": "powershell -ExecutionPolicy Bypass -File .\\scripts\\analyze-style-video.ps1",
+    "analyze:source-video": "powershell -ExecutionPolicy Bypass -File .\\scripts\\analyze-source-video.ps1",
+    "douyin:video": "powershell -ExecutionPolicy Bypass -File .\\scripts\\douyin-video.ps1",
+    "bilibili:video": "powershell -ExecutionPolicy Bypass -File .\\scripts\\bilibili-yutto.ps1",
+    "remotion-bits": "powershell -ExecutionPolicy Bypass -File .\\scripts\\remotion-bits.ps1",
+    "remotion-bits:find": "powershell -ExecutionPolicy Bypass -File .\\scripts\\remotion-bits.ps1 find",
+    "remotion-bits:fetch": "powershell -ExecutionPolicy Bypass -File .\\scripts\\remotion-bits.ps1 fetch",
+    "remocn:add": "powershell -ExecutionPolicy Bypass -File .\\scripts\\remocn-add.ps1",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "postinstall": "patch-package"
   },
   "sideEffects": [
     "*.css"

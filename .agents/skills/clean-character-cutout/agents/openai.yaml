@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clean Character Cutout"
+  short_description: "Clean black-matte fringes from transparent IP character cutouts."
+  default_prompt: "Clean this character cutout so it has feathered transparent edges without black matte residue."
